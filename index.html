@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#eeece7"><meta name="description" content="Chezi в 3D: вращайте модель, приближайте и смотрите танец.">
+<title>Chezi — In motion</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./assets/model-viewer.min.js"></script>
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="./" aria-label="Chezi — главная"><span class="brand-icon">c.</span> CHEZI<span class="brand-divider"></span><span class="brand-sub">IN MOTION</span></a><span class="edition">ПОРТРЕТ В НОВОМ ИЗМЕРЕНИИ <span class="dot"></span></span></header>
+<main>
+<section class="intro"><div><div class="eyebrow">PERSONAL 3D STUDIO <span>01 / 01</span></div><h1>Тот же Chezi.<br><em>Теперь в движении.</em></h1></div><p>Один портрет. Полное движение.<br> Вращайте, приближайте, ловите момент.</p></section>
+<section class="studio" aria-label="Интерактивная 3D-модель Chezi">
+<div class="stage" id="stage">
+<div class="stage-heading"><span class="live"><i></i><span id="state">Загрузка модели</span></span><span class="scene-label">ALL NIGHT DANCE</span></div>
+<div class="stage-type" aria-hidden="true">CHEZI</div><div class="floor" aria-hidden="true"></div>
+<model-viewer id="viewer" src="./assets/dancing.glb" alt="Трёхмерная модель Chezi в белой рубашке, тёмных брюках и белых кроссовках исполняет танец" camera-controls autoplay shadow-intensity="1" shadow-softness="1" exposure="1.1" environment-image="neutral" camera-orbit="0deg 80deg 110%" min-camera-orbit="auto 10deg 35%" max-camera-orbit="auto 115deg 220%" field-of-view="30deg" interaction-prompt="none" touch-action="pan-y" rotation-per-second="18deg" auto-rotate-delay="0" loading="eager">
+<div id="loader" slot="poster" class="loader"><div class="loader-ring"></div><strong id="load-title">Выходим на сцену</strong><span id="load-detail">Загружаем 3D-модель…</span></div>
+<div slot="progress-bar" class="progress"><div id="progress-fill"></div></div>
+</model-viewer>
+<div class="stage-bottom"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 14V6a2 2 0 0 1 4 0v5-2a2 2 0 0 1 4 0v2a2 2 0 0 1 4 0v5c0 4-3 6-6 6-2 0-4-1-5-3l-4-5a2 2 0 0 1 3-2l3 3"/></svg>Тяните, чтобы вращать <b>·</b> Скролл / щипок для зума</span><button id="fullscreen" class="icon-btn" aria-label="Полный экран" title="Полный экран"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+</div>
+<div class="controls">
+<div class="playback"><button id="play" class="play-button" disabled aria-label="Приостановить танец"><span id="play-icon">Ⅱ</span></button><div><strong id="track-title">All Night Dance</strong><span id="track-caption">Танец по кругу</span></div></div>
+<div class="timeline"><span id="elapsed">0:00</span><input id="scrub" aria-label="Позиция в танце" type="range" min="0" max="100" value="0" step="0.01" disabled><span id="duration">0:00</span></div>
+<div class="tools"><label class="speed-label" for="speed">Темп <select id="speed" disabled><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><button id="rotate" class="tool-button" aria-pressed="false" disabled><span>↻</span> Автообзор</button><button id="reset" class="tool-button" disabled title="Вернуть камеру спереди">↖ <span>Сброс вида</span></button></div>
+</div>
+</section>
+<footer><div class="foot-note"><span class="tiny-icon">✳</span><p>Собран по вашему портрету.<br><span>AI-реконструкция · тело и одежда дополнены по фото.</span></p></div><a class="download" href="./assets/dancing.glb" download="chezi-dancing.glb">Скачать 3D-модель <span>↓</span></a></footer>
+</main>
+<div id="announcement" role="status" aria-live="polite" class="sr-only"></div>
+</body></html>
